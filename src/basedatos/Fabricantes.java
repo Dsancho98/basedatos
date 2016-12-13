@@ -259,7 +259,7 @@ public class Fabricantes extends javax.swing.JFrame {
     private void siguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_siguienteActionPerformed
         try {
             if(r.next()){
-                r.next();
+             
                 code.setText(r.getString("COD_FABRICANTE"));
                   nombre.setText(r.getString("NOMBRE"));
                  pais.setText(r.getString("PAIS"));
@@ -271,7 +271,7 @@ public class Fabricantes extends javax.swing.JFrame {
     private void anteriorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_anteriorActionPerformed
         try {
             if(r.previous()){
-                r.previous();
+             
                 code.setText(r.getString("COD_FABRICANTE"));
                 nombre.setText(r.getString("NOMBRE"));
                 pais.setText(r.getString("PAIS"));

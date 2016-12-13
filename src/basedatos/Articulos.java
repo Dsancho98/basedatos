@@ -377,7 +377,7 @@ public class Articulos extends javax.swing.JFrame {
     private void siguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_siguienteActionPerformed
            try {
                if(r.next()){
-               r.next();
+              
                CFabricante.setSelectedItem(getNombreFabricante(r.getInt("FABRICANTE")));
                code.setText(r.getString("COD_ARTICULO"));
                articulo.setText(r.getString("ARTICULO"));             
@@ -394,7 +394,7 @@ public class Articulos extends javax.swing.JFrame {
     private void anteriorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_anteriorActionPerformed
            try {
                if(r.previous()){
-               r.previous();
+              
                CFabricante.setSelectedItem(getNombreFabricante(r.getInt("FABRICANTE")));
                code.setText(r.getString("COD_ARTICULO"));
                articulo.setText(r.getString("ARTICULO"));
