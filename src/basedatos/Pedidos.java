@@ -199,7 +199,6 @@ public class Pedidos extends javax.swing.JFrame {
         });
 
         clienteh.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        clienteh.setEnabled(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -403,15 +402,17 @@ public class Pedidos extends javax.swing.JFrame {
 
     private void modificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificarActionPerformed
                      try {
-               String vnum, vfecha, vcliente;
+               String vnum, vfecha, vcliente,cliente;
                vnum = numpedido.getText();
                vfecha = fecha.getText();
+               vcliente= (String) clienteh.getSelectedItem();
+               cliente= getNifCliente(vcliente);
                String url = "jdbc:mysql://localhost:3306/base_datos_1";
                String user = "root";
                String pass = "";
                Connection connection = DriverManager.getConnection(url, user, pass);
                Statement s = connection.createStatement();
-               String query = "update pedidos set FECHA='" + vfecha + "' WHERE NUM_PEDIDO='"+ vnum +"'";
+               String query = "update pedidos set FECHA='" + vfecha + "',CLIENTE='" +cliente+"' WHERE NUM_PEDIDO='"+ vnum +"'";
                int resultado = s.executeUpdate(query);
                r.refreshRow();
            } catch (SQLException ex) {
@@ -445,8 +446,7 @@ public class Pedidos extends javax.swing.JFrame {
     }//GEN-LAST:event_borrarActionPerformed
 
     private void cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarActionPerformed
-             try {
-            clienteh.setEnabled(false);
+             try {          
             numpedido.setEditable(false);
             borrar.setEnabled(true);
             nuevo.setEnabled(true);

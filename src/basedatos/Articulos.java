@@ -244,7 +244,6 @@ public class Articulos extends javax.swing.JFrame {
         });
 
         CFabricante.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        CFabricante.setEnabled(false);
         CFabricante.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CFabricanteActionPerformed(evt);
@@ -453,9 +452,8 @@ public class Articulos extends javax.swing.JFrame {
                aceptar.setVisible(false);
                cancelar.setVisible(false);
                aceptar.setEnabled(false);
-               cancelar.setEnabled(false);       
-               CFabricante.setEditable(false);
-               CFabricante.setEnabled(false);
+               cancelar.setEnabled(false);  
+               
                code.setText(r.getString("COD_ARTICULO"));
                articulo.setText(r.getString("ARTICULO"));
                peso.setText(r.getString("PESO"));
@@ -473,8 +471,6 @@ public class Articulos extends javax.swing.JFrame {
     }//GEN-LAST:event_precioventaActionPerformed
 
     private void nuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nuevoActionPerformed
-        CFabricante.setEnabled(true);
-        CFabricante.setEditable(true);
         code.setEditable(true);
         borrar.setEnabled(false);
         nuevo.setEnabled(false);
@@ -536,15 +532,15 @@ public class Articulos extends javax.swing.JFrame {
                cancelar.setVisible(false);
                aceptar.setEnabled(false);
                cancelar.setEnabled(false); 
-               CFabricante.setEditable(false);
-               CFabricante.setEnabled(false);
+               
                
                 
     }//GEN-LAST:event_aceptarActionPerformed
 
     private void modificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificarActionPerformed
            try {
-               String vcode, varticulo, vfabricante, vpeso, vcategoria, vpventa, vpcoste, vexistencias;
+               String vcode, varticulo, vCFabricante, vpeso, vcategoria, vpventa, vpcoste, vexistencias;
+               int fabricante;
                vcode = code.getText();
                vcategoria = categoria.getText();
                varticulo = articulo.getText();
@@ -552,10 +548,11 @@ public class Articulos extends javax.swing.JFrame {
                vpventa = precioventa.getText();
                vpcoste = preciocoste.getText();
                vexistencias = existencias.getText();
-              
+               vCFabricante = (String) CFabricante.getSelectedItem();
+               fabricante= getCodFabricante(vCFabricante);
               
                Statement s = connection.createStatement();
-               String query = "update articulos set CATEGORIA='" + vcategoria + "', ARTICULO='" + varticulo + "', PESO=" + vpeso + ", CATEGORIA='" + vcategoria + "', PRECIO_VENTA=" + vpventa + ", PRECIO_COSTE=" + vpcoste + ", EXISTENCIAS=" + vexistencias + " WHERE COD_ARTICULO='"+ vcode +"'";
+               String query = "update articulos set CATEGORIA='" + vcategoria + "',FABRICANTE='"+fabricante+"', ARTICULO='" + varticulo + "', PESO=" + vpeso + ", CATEGORIA='" + vcategoria + "', PRECIO_VENTA=" + vpventa + ", PRECIO_COSTE=" + vpcoste + ", EXISTENCIAS=" + vexistencias + " WHERE COD_ARTICULO='"+ vcode +"'";
                int resultado = s.executeUpdate(query);
                r.refreshRow();
            } catch (SQLException ex) {
