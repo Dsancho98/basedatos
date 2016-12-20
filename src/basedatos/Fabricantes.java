@@ -335,6 +335,7 @@ public class Fabricantes extends javax.swing.JFrame {
             cancelar.setVisible(false);
             aceptar.setEnabled(false);
             cancelar.setEnabled(false);
+            r.first();
             code.setText(r.getString("COD_FABRICANTE"));
             nombre.setText(r.getString("NOMBRE"));    
             pais.setText(r.getString("PAIS"));
@@ -384,18 +385,26 @@ public class Fabricantes extends javax.swing.JFrame {
            } catch (SQLException ex) {
             Logger.getLogger(Fabricantes.class.getName()).log(Level.SEVERE, null, ex);
         }
-        modificar.setEnabled(true);
-        borrar.setEnabled(true);
-            code.setEditable(false);
-            anterior.setEnabled(true);
-            siguiente.setEnabled(true);
-            primero.setEnabled(true);
-            nuevo.setEnabled(true);
-            ultimo.setEnabled(true);
-            aceptar.setVisible(false);
-            cancelar.setVisible(false);
-            aceptar.setEnabled(false);
-            cancelar.setEnabled(false);
+        try {            
+            Fabricantes fab = new Fabricantes ();
+            this.setVisible(false);
+            fab.setVisible(true);            
+        } catch (SQLException ex) {
+            Logger.getLogger(Fabricantes.class.getName()).log(Level.SEVERE, null, ex);
+        }
+            
+       // modificar.setEnabled(true);
+      //  borrar.setEnabled(true);
+       //     code.setEditable(false);
+      //      anterior.setEnabled(true);
+      //      siguiente.setEnabled(true);
+      //      primero.setEnabled(true);
+      //      nuevo.setEnabled(true);
+      //      ultimo.setEnabled(true);
+      //      aceptar.setVisible(false);
+      //      cancelar.setVisible(false);
+      //      aceptar.setEnabled(false);
+      //      cancelar.setEnabled(false);
             
             
     }//GEN-LAST:event_aceptarActionPerformed

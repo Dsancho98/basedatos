@@ -453,7 +453,7 @@ public class Articulos extends javax.swing.JFrame {
                cancelar.setVisible(false);
                aceptar.setEnabled(false);
                cancelar.setEnabled(false);  
-               
+               r.first();
                code.setText(r.getString("COD_ARTICULO"));
                articulo.setText(r.getString("ARTICULO"));
                peso.setText(r.getString("PESO"));
@@ -461,6 +461,7 @@ public class Articulos extends javax.swing.JFrame {
                precioventa.setText(r.getString("PRECIO_VENTA"));
                preciocoste.setText(r.getString("PRECIO_COSTE"));
                existencias.setText(r.getString("EXISTENCIAS"));
+               CFabricante.setSelectedItem(getNombreFabricante(r.getInt("FABRICANTE")));
            } catch (SQLException ex) {
                Logger.getLogger(Articulos.class.getName()).log(Level.SEVERE, null, ex);
            }
@@ -520,18 +521,26 @@ public class Articulos extends javax.swing.JFrame {
            } catch (SQLException ex) {
                Logger.getLogger(Articulos.class.getName()).log(Level.SEVERE, null, ex);
            }
-           code.setEditable(false);
-               borrar.setEnabled(true);
-               anterior.setEnabled(true);
-               nuevo.setEnabled(true);
-               modificar.setEnabled(true);
-               siguiente.setEnabled(true);
-               primero.setEnabled(true);
-               ultimo.setEnabled(true);
-               aceptar.setVisible(false);
-               cancelar.setVisible(false);
-               aceptar.setEnabled(false);
-               cancelar.setEnabled(false); 
+              try {
+            Articulos art = new Articulos ();
+            art.setVisible(true);
+            this.setVisible(false);
+        } catch (SQLException ex) {
+            Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    
+           //code.setEditable(false);
+            //   borrar.setEnabled(true);
+            //   anterior.setEnabled(true);
+            //   nuevo.setEnabled(true);
+            //   modificar.setEnabled(true);
+            //   siguiente.setEnabled(true);
+            //   primero.setEnabled(true);
+            //   ultimo.setEnabled(true);
+            //   aceptar.setVisible(false);
+            //   cancelar.setVisible(false);
+           //    aceptar.setEnabled(false);
+            //   cancelar.setEnabled(false); 
                
                
                 

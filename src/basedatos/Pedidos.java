@@ -378,19 +378,27 @@ public class Pedidos extends javax.swing.JFrame {
            } catch (SQLException ex) {
                Logger.getLogger(Articulos.class.getName()).log(Level.SEVERE, null, ex);
            }       
-               numpedido.setEditable(false);
-               borrar.setEnabled(true);
-               anterior.setEnabled(true);
-               nuevo.setEnabled(true);
-               modificar.setEnabled(true);
-               siguiente.setEnabled(true);
-               primero.setEnabled(true);
-               ultimo.setEnabled(true);
-               aceptar.setVisible(false);
-               cancelar.setVisible(false);
-               aceptar.setEnabled(false);
-               cancelar.setEnabled(false);
-               clienteh.setEnabled(false);
+        
+        try {
+            Pedidos ped = new Pedidos ();            
+            ped.setVisible(true);
+            this.setVisible(false);
+        } catch (SQLException ex) {
+            Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+        }
+           //    numpedido.setEditable(false);
+           //    borrar.setEnabled(true);
+             //  anterior.setEnabled(true);
+            //   nuevo.setEnabled(true);
+            //   modificar.setEnabled(true);
+           //    siguiente.setEnabled(true);
+           //    primero.setEnabled(true);
+            //   ultimo.setEnabled(true);
+           //   aceptar.setVisible(false);
+            //   cancelar.setVisible(false);
+          //     aceptar.setEnabled(false);
+             //  cancelar.setEnabled(false);
+            //   clienteh.setEnabled(false);
     }//GEN-LAST:event_aceptarActionPerformed
 
     private void volverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volverActionPerformed
@@ -459,8 +467,10 @@ public class Pedidos extends javax.swing.JFrame {
             cancelar.setVisible(false);
             aceptar.setEnabled(false);
             cancelar.setEnabled(false);
+            r.first();
              numpedido.setText(r.getString("NUM_PEDIDO"));
                 fecha.setText(r.getString("FECHA"));
+                clienteh.setSelectedItem(getNombreCliente(r.getString("CLIENTE")));
         
         } catch (SQLException ex) {
             Logger.getLogger(Clientes.class.getName()).log(Level.SEVERE, null, ex);

@@ -454,6 +454,7 @@ public class Clientes extends javax.swing.JFrame {
             cancelar.setVisible(false);
             aceptar.setEnabled(false);
             cancelar.setEnabled(false);
+             r.first();
             NIF.setText(r.getString("NIF"));
             nombre.setText(r.getString("NOMBRE"));
             direccion.setText(r.getString("DIRECCION"));
@@ -490,18 +491,27 @@ public class Clientes extends javax.swing.JFrame {
         } catch (SQLException ex) {
             Logger.getLogger(Clientes.class.getName()).log(Level.SEVERE, null, ex);
         }
-        NIF.setEditable(false);
-            nuevo.setEnabled(true);
-            borrar.setEnabled(true);
-            modificar.setEnabled(true);
-            anterior.setEnabled(true);
-            siguiente.setEnabled(true);
-            primero.setEnabled(true);
-            ultimo.setEnabled(true);
-            aceptar.setVisible(false);
-            cancelar.setVisible(false);
-            aceptar.setEnabled(false);
-            cancelar.setEnabled(false); 
+        try {
+           Clientes cli = new Clientes ();    
+           cli = new Clientes();
+           cli.setVisible(true);
+            this.setVisible(false);
+        } catch (SQLException ex) {
+            Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+        }
+            
+        //NIF.setEditable(false);
+        //    nuevo.setEnabled(true);
+       //     borrar.setEnabled(true);
+       //     modificar.setEnabled(true);
+       //     anterior.setEnabled(true);
+       //     siguiente.setEnabled(true);
+        //    primero.setEnabled(true);
+        //    ultimo.setEnabled(true);
+        //    aceptar.setVisible(false);
+        //    cancelar.setVisible(false);
+        //    aceptar.setEnabled(false);
+        //    cancelar.setEnabled(false); 
             
              
             
