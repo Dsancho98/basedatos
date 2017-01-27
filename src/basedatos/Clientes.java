@@ -16,6 +16,7 @@ import javax.swing.JOptionPane;
 /**
  *
  * @author Dani
+ *  
  */
 public class Clientes extends javax.swing.JFrame {
     
@@ -41,8 +42,7 @@ public class Clientes extends javax.swing.JFrame {
         direccion.setText(r.getString("DIRECCION"));
         poblacion.setText(r.getString("POBLACION"));
         provincia.setText(r.getString("PROVINCIA"));
-        telefono.setText(r.getString("TELEFONO"));
-        
+        telefono.setText(r.getString("TELEFONO"));        
     }
 
     /**

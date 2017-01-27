@@ -42,6 +42,7 @@ public class Pedidos extends javax.swing.JFrame {
         numpedido.setText(r.getString("NUM_PEDIDO"));
         fecha.setText(r.getString("FECHA"));
         
+        
         String query2 = "select * from clientes";
           
             Statement s2 = connection.createStatement();
@@ -54,6 +55,11 @@ public class Pedidos extends javax.swing.JFrame {
             clienteh.setModel(value1);
             clienteh.setSelectedItem(getNombreCliente(r.getString("CLIENTE")));
     }
+    /**
+     * El método getNombreCliente nos da el nombre del cliente haciendo uso del código del cliente
+     * @param codigo
+     * @return 
+     */
     public static String getNombreCliente(String codigo){
                        
                String name="";
@@ -70,6 +76,11 @@ public class Pedidos extends javax.swing.JFrame {
             return name;
     
     }
+    /**
+     * El método getNifCliente nos da el NIF del cliente haciendo uso del nombre del cliente
+     * @param nombre
+     * @return 
+     */
      public static String getNifCliente(String nombre){
                           
                String codigo="";

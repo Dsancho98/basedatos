@@ -16,7 +16,7 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 
 /**
- *
+ *La clase publica artículos almacena los ResultSets
  * @author Dani
  */
 public class Articulos extends javax.swing.JFrame {
@@ -26,7 +26,10 @@ public class Articulos extends javax.swing.JFrame {
        static public ResultSet r3;
        static public Connection connection;
     /**
-     * Creates new form Articulos
+     * El método artículos establece la conexión con la base de datos y devuelve los primeros
+     * datos de la clase artículos (el primero código, el primer artículo, etc) y la creación (con su consulta) del combo box
+     * para obtener el nombre del fabricante o el código del fabricante.
+     * @throws SQLException
      */
     public Articulos() throws SQLException {
         initComponents();
@@ -49,6 +52,10 @@ public class Articulos extends javax.swing.JFrame {
         preciocoste.setText(r.getString("PRECIO_COSTE"));
         existencias.setText(r.getString("EXISTENCIAS"));
         
+        /*
+         * Creación del combo box y consulta usada para el combo box para obtener el nombre del fabricante o el 
+         * código del fabricante
+         */
           String query2 = "select * from fabricantes";
           
             Statement s2 = connection.createStatement();
@@ -61,6 +68,11 @@ public class Articulos extends javax.swing.JFrame {
             CFabricante.setModel(value1);
             CFabricante.setSelectedItem(getNombreFabricante(r.getInt("FABRICANTE")));
     }
+    /**
+     * El método getNombreFabricante nos devuelve el nombre del fabricante haciendo uso del código de fabricante
+     * @param codigo
+     * @return 
+     */
     public static String getNombreFabricante(int codigo){
                        
                String name="";
@@ -76,7 +88,11 @@ public class Articulos extends javax.swing.JFrame {
            }
             return name;
     }
-    
+    /**
+     * El método getCodFabricante nos devuelve el código del fabricante haciendo uso del nombre del fabricante
+     * @param nombre
+     * @return 
+     */
      public static int getCodFabricante(String nombre){
                           
                int codigo=0;
