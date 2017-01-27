@@ -16,7 +16,7 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 
 /**
- *La clase publica artículos almacena los ResultSets
+ *La clase artículos almacena los ResultSets y la conexión
  * @author Dani
  */
 public class Articulos extends javax.swing.JFrame {
@@ -26,10 +26,11 @@ public class Articulos extends javax.swing.JFrame {
        static public ResultSet r3;
        static public Connection connection;
     /**
-     * El método artículos establece la conexión con la base de datos y devuelve los primeros
-     * datos de la clase artículos (el primero código, el primer artículo, etc) y la creación (con su consulta) del combo box
+     * El método artículos establece la conexión con la base de datos, devuelve los primeros 
+     * datos de la tabla artículos (el primer código, el primer artículo, etc) y la creación (con su consulta) del combobox
      * para obtener el nombre del fabricante o el código del fabricante.
-     * @throws SQLException
+     * También hace invisible los botones aceptar y cancelar.
+     * @throws SQLException - En caso de error se encarga de tratar dicho error
      */
     public Articulos() throws SQLException {
         initComponents();
@@ -70,8 +71,8 @@ public class Articulos extends javax.swing.JFrame {
     }
     /**
      * El método getNombreFabricante nos devuelve el nombre del fabricante haciendo uso del código de fabricante
-     * @param codigo
-     * @return 
+     * @param codigo - código del fabricante
+     * @return name - devuelve el nombre del fabricante
      */
     public static String getNombreFabricante(int codigo){
                        
@@ -90,8 +91,8 @@ public class Articulos extends javax.swing.JFrame {
     }
     /**
      * El método getCodFabricante nos devuelve el código del fabricante haciendo uso del nombre del fabricante
-     * @param nombre
-     * @return 
+     * @param nombre - nombre del fabricante
+     * @return codigo - el código del fabricante
      */
      public static int getCodFabricante(String nombre){
                           

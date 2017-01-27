@@ -14,14 +14,16 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
- *
+ *La clase Fabricantes almacena los ResultSets que en este caso solo hay uno
  * @author Dani
  */
 public class Fabricantes extends javax.swing.JFrame {
 
     static public ResultSet r;
     /**
-     * Creates new form Fabricantes
+     * Se establece la conexión con la base de datos y se obtienen los primeros datos de la tabla Fabricantes y hace invisible
+     * los botones aceptar y cancelar.
+     * @throws SQLException - En caso de error se encarga de tratar dicho error
      */
     public Fabricantes() throws SQLException {
         initComponents();

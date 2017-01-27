@@ -14,7 +14,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 /**
- *
+ *La clase clientes almacena los ResultSets (en este caso solo 1)
  * @author Dani
  *  
  */
@@ -22,7 +22,9 @@ public class Clientes extends javax.swing.JFrame {
     
     static public ResultSet r;
     /**
-     * Creates new form Clientes
+     * Conexión con la base de datos y los primeros datos de la tabla Clientes (NIF, Nombre, etc) y hace invisible los botones
+     * aceptar y cancelar.
+     * @throws SQLException - En caso de error se encarga de tratar dicho error
      */ 
     public Clientes() throws SQLException {
         initComponents();

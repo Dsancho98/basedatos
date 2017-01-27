@@ -15,7 +15,7 @@ import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 /**
- *
+ * La clase pedidos almacena los ResultSets y la conexión
  * @author AlumMati
  */
 public class Pedidos extends javax.swing.JFrame {
@@ -24,7 +24,11 @@ public class Pedidos extends javax.swing.JFrame {
        static public ResultSet r3;
        static public Connection connection;
     /**
-     * Creates new form Pedidos
+     * Se establece la conexión con la base de datos y se obtienen los primeros datos de la tabla
+     * pedidos. También contiene el combobox y la consulta del combobox para obtener el nombre del
+     * cliente y el código del cliente
+     * También hace invisible los botones aceptar y cancelar
+     * @throws SQLException - En caso de error se encarga de tratar dicho error
      */
     public Pedidos() throws SQLException {
         initComponents();
@@ -57,8 +61,8 @@ public class Pedidos extends javax.swing.JFrame {
     }
     /**
      * El método getNombreCliente nos da el nombre del cliente haciendo uso del código del cliente
-     * @param codigo
-     * @return 
+     * @param codigo - Código del cliente
+     * @return name - nombre del cliente
      */
     public static String getNombreCliente(String codigo){
                        
@@ -78,8 +82,8 @@ public class Pedidos extends javax.swing.JFrame {
     }
     /**
      * El método getNifCliente nos da el NIF del cliente haciendo uso del nombre del cliente
-     * @param nombre
-     * @return 
+     * @param nombre - Nombre del cliente
+     * @return codigo - Codigo del cliente
      */
      public static String getNifCliente(String nombre){
                           
