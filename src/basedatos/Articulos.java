@@ -18,6 +18,7 @@ import javax.swing.JOptionPane;
 /**
  *La clase artículos almacena los ResultSets y la conexión
  * @author Dani
+ * @version 1 - alpha
  */
 public class Articulos extends javax.swing.JFrame {
 

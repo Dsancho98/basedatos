@@ -17,6 +17,7 @@ import javax.swing.JOptionPane;
 /**
  * La clase pedidos almacena los ResultSets y la conexión
  * @author AlumMati
+ * @version 1 - alpha
  */
 public class Pedidos extends javax.swing.JFrame {
     static public ResultSet r;

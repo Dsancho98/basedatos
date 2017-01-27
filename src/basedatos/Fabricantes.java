@@ -16,6 +16,7 @@ import javax.swing.JOptionPane;
 /**
  *La clase Fabricantes almacena los ResultSets que en este caso solo hay uno
  * @author Dani
+ * @version 1 - alpha
  */
 public class Fabricantes extends javax.swing.JFrame {
 

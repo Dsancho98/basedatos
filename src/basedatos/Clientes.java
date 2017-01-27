@@ -25,6 +25,7 @@ public class Clientes extends javax.swing.JFrame {
      * Conexión con la base de datos y los primeros datos de la tabla Clientes (NIF, Nombre, etc) y hace invisible los botones
      * aceptar y cancelar.
      * @throws SQLException - En caso de error se encarga de tratar dicho error
+     * @version 1 - alpha
      */ 
     public Clientes() throws SQLException {
         initComponents();
