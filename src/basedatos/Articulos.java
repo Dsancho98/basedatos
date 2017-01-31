@@ -21,7 +21,7 @@ import javax.swing.JOptionPane;
  * @version 1 - alpha
  */
 public class Articulos extends javax.swing.JFrame {
-/*Creación de los resultsets y la conexión*/
+/*Creación de los resultsets y connection*/
        static public ResultSet r;
        static public ResultSet r2;
        static public ResultSet r3;

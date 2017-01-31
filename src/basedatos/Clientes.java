@@ -19,7 +19,7 @@ import javax.swing.JOptionPane;
  *  
  */
 public class Clientes extends javax.swing.JFrame {
-    
+    /*Creación de los resultsets*/
     static public ResultSet r;
     /**
      * Conexión con la base de datos y los primeros datos de la tabla Clientes (NIF, Nombre, etc) y hace invisible los botones

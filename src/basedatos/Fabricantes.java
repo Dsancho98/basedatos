@@ -19,7 +19,7 @@ import javax.swing.JOptionPane;
  * @version 1 - alpha
  */
 public class Fabricantes extends javax.swing.JFrame {
-
+/*Creación de los resultsets*/
     static public ResultSet r;
     /**
      * Se establece la conexión con la base de datos y se obtienen los primeros datos de la tabla Fabricantes y hace invisible
