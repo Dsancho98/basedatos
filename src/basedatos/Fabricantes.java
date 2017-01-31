@@ -377,6 +377,8 @@ public class Fabricantes extends javax.swing.JFrame {
             String pass = "";
             Connection connection = DriverManager.getConnection(url, user, pass);
             Statement s = connection.createStatement();
+            /*Comprobación de que se ha introducido el campo clave. Si no ha sido introducido salta un error:
+               "No has asignado un Código"*/
              if (code.getText().length()==0) JOptionPane.showMessageDialog(null,"No has asignado un Código");
              else{
             String query = "insert into fabricantes values ('" + vcode + "','" + vnombre + "','" + vpais + "')";
@@ -414,6 +416,7 @@ public class Fabricantes extends javax.swing.JFrame {
 
     private void borrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_borrarActionPerformed
         try {
+             /*Comprobación previa antes de borrar para confirmar que realmente deseas borrar la línea seleccionada.*/
             int i= JOptionPane.showConfirmDialog(null, "Realmente desea borrar?", "Confirmar eliminación", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
             if (i==1);
             else {
