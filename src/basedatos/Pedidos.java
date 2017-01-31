@@ -15,7 +15,7 @@ import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 /**
- * La clase pedidos almacena los ResultSets y la conexión
+ * La clase pedidos almacena la lista de los pedidos realizados por los clientes.
  * @author AlumMati
  * @version 1 - alpha
  */

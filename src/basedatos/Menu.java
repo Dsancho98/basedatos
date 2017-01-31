@@ -11,7 +11,7 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
- *
+ *La clase Menu contiene cuatro botones para moverse por las distintas pestañas de la aplicación
  * @author Dani
  */
 public class Menu extends javax.swing.JFrame {

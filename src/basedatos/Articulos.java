@@ -16,7 +16,7 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 
 /**
- *La clase artículos almacena los ResultSets y la conexión
+ *La clase artículos almacena la información de los artículos.
  * @author Dani
  * @version 1 - alpha
  */

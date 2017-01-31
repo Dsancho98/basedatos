@@ -14,7 +14,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 /**
- *La clase clientes almacena los ResultSets (en este caso solo 1)
+ *La clase clientes almacena la información refente a los clientes.
  * @author Dani
  *  
  */

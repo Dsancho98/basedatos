@@ -14,7 +14,7 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
- *La clase Fabricantes almacena los ResultSets que en este caso solo hay uno
+ *La clase Fabricantes contiene la información de los proveedores.
  * @author Dani
  * @version 1 - alpha
  */

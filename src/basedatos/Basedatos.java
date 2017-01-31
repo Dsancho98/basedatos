@@ -8,7 +8,7 @@ package basedatos;
 import java.sql.SQLException;
 
 /**
- *
+ *La clase BaseDatos es la clase main la cual abre el menú.
  * @author Dani
  */
 public class Basedatos {
