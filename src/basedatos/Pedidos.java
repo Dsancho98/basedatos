@@ -47,7 +47,9 @@ public class Pedidos extends javax.swing.JFrame {
         numpedido.setText(r.getString("NUM_PEDIDO"));
         fecha.setText(r.getString("FECHA"));
         
-        
+        /*
+        *Creación del combo box y consulta usada para el combo box.
+        */
         String query2 = "select * from clientes";
           
             Statement s2 = connection.createStatement();

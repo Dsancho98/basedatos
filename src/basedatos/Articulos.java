@@ -21,7 +21,7 @@ import javax.swing.JOptionPane;
  * @version 1 - alpha
  */
 public class Articulos extends javax.swing.JFrame {
-
+/*Creación de los resultsets y la conexión*/
        static public ResultSet r;
        static public ResultSet r2;
        static public ResultSet r3;
@@ -36,13 +36,15 @@ public class Articulos extends javax.swing.JFrame {
     public Articulos() throws SQLException {
         initComponents();
         aceptar.setVisible(false);
-        cancelar.setVisible(false);       
+        cancelar.setVisible(false);    
+        /*Conexión con la base de datos junto al usuario y la contraseña. En este caso root y sin contraseña por defecto*/
         String url ="jdbc:mysql://localhost:3306/base_datos_1";
         String user = "root";
         String pass = "";
         connection = DriverManager.getConnection(url,user,pass);
         
         Statement s = (Statement) connection.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+        /* Consulta que se almacena en el resultset r.*/
         String query = "select * from articulos A";
         r = s.executeQuery(query);
         r.first();
@@ -58,10 +60,12 @@ public class Articulos extends javax.swing.JFrame {
          * Creación del combo box y consulta usada para el combo box para obtener el nombre del fabricante o el 
          * código del fabricante
          */
+        /*Consulta que se almacena en el resultset r2*/
           String query2 = "select * from fabricantes";
           
             Statement s2 = connection.createStatement();
             r2 = s2.executeQuery(query2);
+        /*Creación del combobox*/
             DefaultComboBoxModel value1 = new DefaultComboBoxModel();
 
             while (r2.next()) {
@@ -79,11 +83,14 @@ public class Articulos extends javax.swing.JFrame {
                        
                String name="";
                try {
+                   /* Consulta que, a través del código del fabricante, obtiene el nombre del fabricante.*/
                String queryNombre = "select nombre from fabricantes WHERE cod_fabricante="+codigo;
                
                Statement s3 = connection.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+               /*Guarda la consulta anterior en el resultset r3*/
                r3= s3.executeQuery(queryNombre);
                r3.first();
+               /*Se pide el nombre del fabricante a través del resultset r3*/
                name= r3.getString("NOMBRE");              
            } catch (SQLException ex) {
                Logger.getLogger(Articulos.class.getName()).log(Level.SEVERE, null, ex);
@@ -99,11 +106,14 @@ public class Articulos extends javax.swing.JFrame {
                           
                int codigo=0;
                try {
+               /*Consulta que, a través del nombre del fabricante, se obtiene el código del fabricante*/
                String queryCodigo = "select cod_fabricante from fabricantes WHERE nombre='"+nombre+"'";
               
                Statement s3 = connection.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+               /*Almacena la consulta anterior en el resultset r3*/
                r3= s3.executeQuery(queryCodigo);
                r3.first();
+               /*Se oude el nombre del fabricante a través del resultset r3*/
                codigo= r3.getInt("COD_FABRICANTE");
            } catch (SQLException ex) {
                Logger.getLogger(Articulos.class.getName()).log(Level.SEVERE, null, ex);
@@ -514,6 +524,7 @@ public class Articulos extends javax.swing.JFrame {
 
     private void aceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aceptarActionPerformed
            try {
+               /*Declaración de variables*/
                String vcode, varticulo, vpeso, vcategoria, vpventa, vpcoste, vexistencias;
                String vCFabricante;
                int fabricante;
@@ -528,8 +539,11 @@ public class Articulos extends javax.swing.JFrame {
                fabricante= getCodFabricante(vCFabricante);
               
                Statement s = connection.createStatement();
+               /*Comprobación de que se ha introducido el campo clave. Si no ha sido introducido salta un error:
+               "No has asignado un Código"*/
                if (code.getText().length()==0) JOptionPane.showMessageDialog(null,"No has asignado un Código");
                else {
+               /*Insercción de los datos en la tabla artículos*/
                String query = "insert into articulos values ('" + vcode + "','" + varticulo + "'," + fabricante + "," + vpeso + ",'" + vcategoria + "'," + vpventa + "," + vpcoste + "," + vexistencias + ")";
                int resultado = s.executeUpdate(query);
                 String query2 = "select * from articulos";
@@ -596,6 +610,7 @@ cli.setVisible(true);
 
     private void borrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_borrarActionPerformed
            try {
+               /*Comprobación previa antes de borrar para confirmar que realmente deseas borrar la línea seleccionada.*/
                int i= JOptionPane.showConfirmDialog(null, "Realmente desea borrar?", "Confirmar eliminación", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
                if (i==1);
                else {               
